@@ -11,24 +11,32 @@ def exibir_opcoes():
         4. Sair
         ''')
 
-def escolher_opcao():
-    opcao_escolhida = int(input('Escolha uma opção: '))
-    # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior
+def opcao_invalida():
+    print('Opção inválida!\n')
+    input('Digite ENTER para voltar ao menu principal')
+    main()
 
-    match opcao_escolhida:
-        case 1:
-            print('Cadastrar restaurante')
-        case 2:
-            print('Cadastrar restaurante')
-        case 3:
-            print('Cadastrar restaurante')
-        case 4:
-            finalizar_app()
-        case _:
-            print('Opção inválida!')
-            # Uma opção para a mensagem de erro seria colocar tudo dentro de uma estrutura de repetição, mas ainda não sei como fazer isso.
+def escolher_opcao():
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior
+
+        match opcao_escolhida:
+            case 1:
+                print('Cadastrar restaurante')
+            case 2:
+                print('Cadastrar restaurante')
+            case 3:
+                print('Cadastrar restaurante')
+            case 4:
+                finalizar_app()
+            case _:
+                opcao_invalida()
+    except:
+        opcao_invalida()
 
 def main():
+    os.system('cls')
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
