@@ -15,15 +15,18 @@ def escolher_opcao():
     opcao_escolhida = int(input('Escolha uma opção: '))
     # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior
 
-    if opcao_escolhida == 1:
-        print('Cadastrar restaurante')
-    elif opcao_escolhida == 2:
-        print('Cadastrar restaurante')
-    elif opcao_escolhida == 3:
-        print('Cadastrar restaurante')
-    elif opcao_escolhida == 4: #na solução original do curso os instrutores usaram else, mas assim o programa executaria o código qualquer que fosse a entrada, desde que diferente das anteriores. Prefiro retornar um erro
-        finalizar_app()
-    # Uma opção para a mensagem de erro seria colocar tudo dentro de uma estrutura de repetição, mas ainda não sei como fazer isso.
+    match opcao_escolhida:
+        case 1:
+            print('Cadastrar restaurante')
+        case 2:
+            print('Cadastrar restaurante')
+        case 3:
+            print('Cadastrar restaurante')
+        case 4:
+            finalizar_app()
+        case _:
+            print('Opção inválida!')
+            # Uma opção para a mensagem de erro seria colocar tudo dentro de uma estrutura de repetição, mas ainda não sei como fazer isso.
 
 def main():
     exibir_nome_do_programa()
