@@ -1,5 +1,11 @@
 import os #Necessário para utilizar o método que limpa o terminal
 
+lista_restaurantes = []
+
+def voltar_ao_menu():
+    input('\nDigite ENTER para voltar ao menu principal')
+    main() #reinicia o aplicativo
+
 def exibir_nome_do_programa():
     print('\n### Sabor Express ###')
 
@@ -12,9 +18,21 @@ def exibir_opcoes():
         ''')
 
 def opcao_invalida():
-    print('Opção inválida!\n')
-    input('Digite ENTER para voltar ao menu principal')
-    main()
+    print('Opção inválida!')
+    voltar_ao_menu()
+
+def exibir_subtitulo(txt):
+    os.system('cls')
+    print(f'### {txt} ###\n')
+
+def cadastrar_novo_restaurante():
+    exibir_subtitulo('Cadastro de restaurante')
+    
+    nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
+    lista_restaurantes.append(nome_restaurante)
+    print(f'\nO restaurante {nome_restaurante} foi cadastrado com sucesso!\n')
+    
+    voltar_ao_menu()
 
 def escolher_opcao():
     try:
@@ -23,7 +41,7 @@ def escolher_opcao():
 
         match opcao_escolhida:
             case 1:
-                print('Cadastrar restaurante')
+                cadastrar_novo_restaurante()
             case 2:
                 print('Cadastrar restaurante')
             case 3:
@@ -36,7 +54,7 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
-    os.system('cls')
+    os.system('cls') #limpa o terminal
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
