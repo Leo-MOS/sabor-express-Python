@@ -27,11 +27,19 @@ def exibir_subtitulo(txt):
 
 def cadastrar_novo_restaurante():
     exibir_subtitulo('Cadastro de restaurante')
-    
+
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
     lista_restaurantes.append(nome_restaurante)
     print(f'\nO restaurante {nome_restaurante} foi cadastrado com sucesso!\n')
     
+    voltar_ao_menu()
+
+def listar_restaurantes():
+    exibir_subtitulo('Lista de restaurantes cadastrados')
+
+    for el in lista_restaurantes:
+        print(f' - {el}')
+
     voltar_ao_menu()
 
 def escolher_opcao():
@@ -43,9 +51,9 @@ def escolher_opcao():
             case 1:
                 cadastrar_novo_restaurante()
             case 2:
-                print('Cadastrar restaurante')
+                listar_restaurantes()
             case 3:
-                print('Cadastrar restaurante')
+                print('Ativar restaurante')
             case 4:
                 finalizar_app()
             case _:
