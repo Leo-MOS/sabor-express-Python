@@ -1,6 +1,6 @@
 import os #Necessário para utilizar o método que limpa o terminal
 
-lista_restaurantes = []
+lista_restaurantes = [{'nome': 'Boom Confeitaria', 'categoria': 'Confeitaria', 'ativo': True},{'nome': 'GastroBurg', 'categoria': 'Hamburgueria', 'ativo': False}]
 
 def voltar_ao_menu():
     input('\nDigite ENTER para voltar ao menu principal')
@@ -37,15 +37,18 @@ def cadastrar_novo_restaurante():
 def listar_restaurantes():
     exibir_subtitulo('Lista de restaurantes cadastrados')
 
-    for el in lista_restaurantes:
-        print(f' - {el}')
+    for restaurante in lista_restaurantes:
+        nome_restaurante = restaurante['nome']
+        categoria_restaurante = restaurante['categoria']
+        ativo_restaurante = restaurante['ativo']
+        print(f' - {nome_restaurante} | {categoria_restaurante} | {ativo_restaurante}')
 
     voltar_ao_menu()
 
 def escolher_opcao():
     try:
         opcao_escolhida = int(input('Escolha uma opção: '))
-        # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior
+        # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior    
 
         match opcao_escolhida:
             case 1:
