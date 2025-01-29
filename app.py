@@ -13,7 +13,7 @@ def exibir_opcoes():
     print('''
         1. Cadastrar restaurante
         2. Listar restaurantes
-        3. Ativar restaurante
+        3. Alternar estado do restaurante
         4. Sair
         ''')
 
@@ -21,9 +21,12 @@ def opcao_invalida():
     print('Opção inválida!')
     voltar_ao_menu()
 
-def exibir_subtitulo(txt):
+def exibir_subtitulo(texto):
     os.system('cls')
-    print(f'### {txt} ###\n')
+    linha = '#' * (len(texto) + 8)
+    print(linha)
+    print(f'--- {texto} ---')
+    print(f'{linha}\n')
 
 def cadastrar_novo_restaurante():
     exibir_subtitulo('Cadastro de restaurante')
@@ -39,11 +42,12 @@ def cadastrar_novo_restaurante():
 def listar_restaurantes():
     exibir_subtitulo('Lista de restaurantes cadastrados')
 
+    print(f'{'Nome do restaurante'.ljust(23)} | {'Categoria'.ljust(20)} | Estado')
     for restaurante in lista_restaurantes:
         nome_restaurante = restaurante['nome']
         categoria_restaurante = restaurante['categoria']
-        ativo_restaurante = restaurante['ativo']
-        print(f' - {nome_restaurante} | {categoria_restaurante} | {ativo_restaurante}')
+        ativo_restaurante = 'ativado' if restaurante['ativo'] else 'desativado'
+        print(f' - {nome_restaurante.ljust(20)} | {categoria_restaurante.ljust(20)} | {ativo_restaurante.ljust(20)}')
 
     voltar_ao_menu()
 
