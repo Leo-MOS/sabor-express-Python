@@ -26,7 +26,16 @@ def opcao_invalida():
     voltar_ao_menu()
 
 def exibir_subtitulo(texto):
-    '''Essa função exibe o subtítulo do menu acessado'''
+    '''
+    Essa função exibe o subtítulo do menu acessado
+    
+    Inputs:
+    - Subtítulo
+    
+    Output:
+    - Escreve o subtítulo na tela de maneira personalizada
+    '''
+
     os.system('cls')
     linha = '#' * (len(texto) + 8)
     print(linha)
@@ -34,7 +43,17 @@ def exibir_subtitulo(texto):
     print(f'{linha}\n')
 
 def cadastrar_novo_restaurante():
-    '''Essa função é responsável por cadastrar um novo restaurante'''
+    '''
+    Essa função é responsável por cadastrar um novo restaurante
+    
+    Inputs:
+    - Nome do restaurante
+    - Categoria do restaurante
+
+    Output:
+    - Cadastra o restaurante na lista de restaurantes cadastrados com o status inativo
+    '''
+
     exibir_subtitulo('Cadastro de restaurante')
 
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
@@ -46,7 +65,16 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu()
 
 def listar_restaurantes():
-    '''Essa função exibe uma lista de todos os restaurantes cadastrados na tela'''
+    '''
+    Essa função exibe uma lista de todos os restaurantes cadastrados na tela
+    
+    Inputs:
+    - Nenhum
+    
+    Outputs:
+    - Escreve todos os dados dos restaurantes cadastrado na tela
+    '''
+
     exibir_subtitulo('Lista de restaurantes cadastrados')
 
     print(f'{'Nome do restaurante'.ljust(23)} | {'Categoria'.ljust(20)} | Estado')
@@ -59,7 +87,15 @@ def listar_restaurantes():
     voltar_ao_menu()
 
 def alternar_status_restaurante():
-    '''Essa função alterna o estado do restaurante entre ativo e inativo'''
+    '''
+    Essa função alterna o estado do restaurante entre ativo e inativo
+    
+    Inputs:
+    - Nome do restaurante
+
+    Output:
+    - Alterna o status do restaurante entre true e false
+    '''
     exibir_subtitulo('Alternar Status do restaurante')
 
     nome_restaurante = input('Digite o nome do restaurante que deseja alternar o status: ')
