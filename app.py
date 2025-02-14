@@ -3,13 +3,16 @@ import os #Necessário para utilizar o método que limpa o terminal
 lista_restaurantes = [{'nome': 'Boom Confeitaria', 'categoria': 'Confeitaria', 'ativo': True},{'nome': 'GastroBurg', 'categoria': 'Hamburgueria', 'ativo': False}]
 
 def voltar_ao_menu():
+    '''Essa função é responsável por voltar ao menu principal'''
     input('\nDigite ENTER para voltar ao menu principal')
     main() #reinicia o aplicativo
 
 def exibir_nome_do_programa():
+    '''Essa função exibe o nome do programa'''
     print('\n### Sabor Express ###')
 
 def exibir_opcoes():
+    '''Essa função exibir as opções disponíveis para o usuário'''
     print('''
         1. Cadastrar restaurante
         2. Listar restaurantes
@@ -18,10 +21,12 @@ def exibir_opcoes():
         ''')
 
 def opcao_invalida():
+    '''Essa função retorna uma mensagem de erro e retorna ao menu principal'''
     print('Opção inválida!')
     voltar_ao_menu()
 
 def exibir_subtitulo(texto):
+    '''Essa função exibe o subtítulo do menu acessado'''
     os.system('cls')
     linha = '#' * (len(texto) + 8)
     print(linha)
@@ -29,6 +34,7 @@ def exibir_subtitulo(texto):
     print(f'{linha}\n')
 
 def cadastrar_novo_restaurante():
+    '''Essa função é responsável por cadastrar um novo restaurante'''
     exibir_subtitulo('Cadastro de restaurante')
 
     nome_restaurante = input('Digite o nome do restaurante que deseja cadastrar: ')
@@ -40,6 +46,7 @@ def cadastrar_novo_restaurante():
     voltar_ao_menu()
 
 def listar_restaurantes():
+    '''Essa função exibe uma lista de todos os restaurantes cadastrados na tela'''
     exibir_subtitulo('Lista de restaurantes cadastrados')
 
     print(f'{'Nome do restaurante'.ljust(23)} | {'Categoria'.ljust(20)} | Estado')
@@ -52,6 +59,7 @@ def listar_restaurantes():
     voltar_ao_menu()
 
 def alternar_status_restaurante():
+    '''Essa função alterna o estado do restaurante entre ativo e inativo'''
     exibir_subtitulo('Alternar Status do restaurante')
 
     nome_restaurante = input('Digite o nome do restaurante que deseja alternar o status: ')
@@ -69,6 +77,7 @@ def alternar_status_restaurante():
     voltar_ao_menu()
 
 def escolher_opcao():
+    '''Essa função recebe a entrada do usuário para entrar em um menu do sistema'''
     try:
         opcao_escolhida = int(input('Escolha uma opção: '))
         # opcao_escolhida = int(opcao_escolhida) #Esta seria uma alternativa à linha anterior    
@@ -88,12 +97,14 @@ def escolher_opcao():
         opcao_invalida()
 
 def main():
+    '''Função principal que executa o sistema inicialmente'''
     os.system('cls') #limpa o terminal
     exibir_nome_do_programa()
     exibir_opcoes()
     escolher_opcao()
 
 def finalizar_app():
+    '''Essa função finaliza o sistema e exibe uma mensagem na tela'''
     os.system('cls') #Limpa o terminal
     print('App finalizado.')
 
